@@ -1,4 +1,4 @@
-<img width="1533" height="490" alt="Screenshot 2026-01-11 145424" src="https://github.com/user-attachments/assets/7ef9bbae-3a86-42d7-951c-6410158432f5" />🔐 SecureLink: ML-Based Phishing URL Detection System
+🔐 SecureLink: ML-Based Phishing URL Detection System
 
 SecureLink is a machine learning–driven system for detecting phishing URLs by analyzing lexical and structural patterns in URLs.
 Unlike traditional blacklist-based approaches, SecureLink leverages a Random Forest Classifier to identify malicious links, making it effective against zero-day phishing attacks.
