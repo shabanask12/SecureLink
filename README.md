@@ -1,108 +1,86 @@
-🔐 SecureLink: ML-Based Phishing URL Detection
+🔐 SecureLink: ML-Based Phishing URL Detection System
 
-SecureLink is a machine learning system designed to detect phishing URLs by analyzing lexical features. Unlike traditional blacklist methods, it uses a Random Forest Classifier to predict the probability of a URL being malicious based on patterns, making it effective against zero-day phishing attacks.
+SecureLink is a machine learning–driven system for detecting phishing URLs by analyzing lexical and structural patterns in URLs.
+Unlike traditional blacklist-based approaches, SecureLink leverages a Random Forest Classifier to identify malicious links, making it effective against zero-day phishing attacks.
 
-The system prioritizes Recall over Accuracy to strictly minimize False Negatives (missed attacks).
+The system is designed with a security-first mindset, prioritizing Recall over Accuracy to minimize False Negatives (missed phishing threats).
 
 🚀 Key Features
 
-Real-Time Analysis: Extracts features from raw URL strings instantly.
+Real-Time URL Analysis
+Instantly extracts features from raw URL strings without external lookups.
 
-Probability-Based Scoring: Returns a risk score (0–1) rather than a simple Yes/No.
+Probability-Based Risk Scoring
+Outputs a phishing probability score (0–1) instead of a binary decision.
 
-Custom Sensitivity: Implements a tunable decision threshold (default > 0.3) for stricter security.
+Configurable Sensitivity
+Uses a tunable decision threshold (default: 0.3) to aggressively flag suspicious URLs.
 
-Hybrid Logic: Capable of combining ML predictions with rule-based overrides (IP checks, blacklists).
+Hybrid Detection Logic
+Supports integration of ML predictions with rule-based checks (e.g., IP-based URLs, known blacklists).
 
 🧠 Machine Learning Approach
-
 1. Feature Engineering
 
-Raw text URLs are converted into numerical vectors. Key features include:
+Raw URLs are transformed into numerical feature vectors. Extracted features include:
 
-Feature Category
-
-Examples Extracted
-
-Structural
-
-URL length, Domain length, Directory depth
-
-Statistical
-
-Count of digits, special chars (@, -, ?), subdomains
-
-Keyword-based
-
-Presence of "login", "verify", "secure", "bank"
-
-Anomalies
-
-IP address usage, Suspicious TLDs (.xyz, .cf)
-
+Feature Category	Examples
+Structural	URL length, domain length, directory depth
+Statistical	Count of digits, special characters (@, -, ?), number of subdomains
+Keyword-Based	Presence of terms like login, verify, secure, bank
+Anomalies	IP-based URLs, suspicious TLDs (.xyz, .cf)
 2. Model Selection
 
-We utilize a Random Forest Classifier because:
+A Random Forest Classifier is used because:
 
-It handles non-linear relationships between URL features effectively.
+It captures non-linear relationships between URL features effectively
 
-It is robust against overfitting compared to single Decision Trees.
+It is less prone to overfitting compared to single decision trees
 
-It provides reliable predict_proba() outputs for risk scoring.
+It provides reliable predict_proba() outputs for probabilistic risk scoring
 
 3. Evaluation Strategy
 
-Standard accuracy is misleading in security contexts. We focus on:
+In cybersecurity applications, accuracy alone is misleading. SecureLink emphasizes:
 
-Recall: To ensure actual phishing links are caught.
+Recall – to ensure phishing URLs are not missed
 
-F1-Score: To balance precision and recall in imbalanced datasets.
+F1-Score – to balance precision and recall on imbalanced datasets
 
-Thresholding: The classification threshold is set to 0.3 (instead of 0.5) to aggressively flag potential threats.
+Threshold Tuning – classification threshold set to 0.3 (instead of 0.5) for stricter detection
 
 🛠️ Installation & Usage
-
-Clone the repository:
-
-git clone [https://github.com/yourusername/SecureLink.git](https://github.com/yourusername/SecureLink.git)
+Clone the Repository
+git clone https://github.com/shabanask12/SecureLink.git
 cd SecureLink
 
-
-Install dependencies:
-
+Install Dependencies
 pip install -r requirements.txt
 
-
-Generate Synthetic Dataset (Optional):
-
+(Optional) Generate Synthetic Dataset
 python app.py
 
-
-Run the Detector:
-
+Run the Phishing Detector
 python main.py
 
-
 📂 Project Structure
-
 SecureLink/
-├── main.py            # CLI entry point for testing URLs
-├── model.py           # Model training and prediction logic
-├── features.py        # Feature extraction engine
-├── app.py             # Synthetic data generator
-├── data/              # Storage for training datasets
-└── README.md          # Project documentation
+├── main.py        # CLI entry point for URL testing
+├── model.py       # Model training and prediction logic
+├── features.py    # URL feature extraction engine
+├── app.py         # Synthetic dataset generator
+├── data/          # Training and test datasets
+└── README.md      # Project documentation
 
+🚀 Future Enhancements
 
-🚀 Future Roadmap
+ REST API integration using Flask or FastAPI
 
-[ ] Integration with Flask/FastAPI for REST API access.
+ Web dashboard for phishing analytics and visualization
 
-[ ] Web Dashboard for visualizing threat metrics.
-
-[ ] SHAP analysis to explain why a URL was flagged.
+ SHAP-based explainability for model predictions
 
 👤 Author
 
 Shabana
-Aspiring Software & Machine Learning Engineer
+Software Engineer & Machine Learning Practitioner
